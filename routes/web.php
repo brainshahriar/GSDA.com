@@ -57,7 +57,7 @@ Route::get('/submit', [PaymentController::class,'submit']);
 
 
 
-Route::get('/search', [SearchController::class,'autoComplete'])->name('autocomplete');
+// Route::get('/search', [SearchController::class,'autoComplete'])->name('autocomplete');
 Route::post('/booking', [BookingController::class,'SendMail'])->name('sendmail');
 
 
@@ -250,7 +250,7 @@ Route::get('/admin/home/classroom_bookings', [BookingController::class,'BookingL
 //password change route
 
 Route::post('change-password-store',[UserProfileController::class,'changePassStore'])->name('change-password-store');
-Route::get('/search-products', [SearchController::class,'searchProduct'])->name('search.product');
+
 
 
 //socialite login
@@ -260,3 +260,6 @@ Route::get('login/google/callback', [LoginController::class,'handleGoogleCallbac
 Route::get('login/facebook', [LoginController::class,'redirectToFacebook'])->name('login.facebook');
 Route::get('login/facebook/callback', [LoginController::class,'handleFacebookCallback']);
 
+//search
+// Route::get('/search-products', [SearchController::class,'searchProduct'])->name('search-product');
+ Route::get("search", [SearchController::class,'searchProduct']);

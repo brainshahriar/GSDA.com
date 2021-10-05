@@ -32,7 +32,7 @@
       </div>
       <!-- Search Box ==== -->
                 <div class="nav-search-bar">
-                  <form class="cours-search" action="{{ route('search.product') }}" method="GET">
+                  <form class="cours-search" action="" method="GET">
                 <div class="input-group">
                   <input type="text" class="form-control" placeholder="What do you want to learn today?	" name="search">
                   <div class="input-group-append">

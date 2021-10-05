@@ -4,15 +4,41 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Course;
+use App\Models\MainCategory;
+use App\Models\CourseCategory;
+
 
 class SearchController extends Controller
 {
 
-    public function autoComplete(Request $request)
+    // public function searchProduct(Request $request)
 
+    // {
+    //     $request->validate([
+    //         'search'=>'required'
+    //     ]);
+    //     $course=Course::where("course_title","LIKE","%".$request->search."%")
+    //     ->orwhere('course_image',"LIKE","%".$request->search."%")
+    //     ->orwhere('regular_price',"LIKE","%".$request->search."%")
+    //     ->orwhere('sale_price',"LIKE","%".$request->search."%")
+    //     ->orwhere('id','LIKE',"LIKE","%".$request->search."%")->get();
+
+    //      return view ('search-result',compact('course'));
+    // }
+
+    public function searchProduct(Request $request)
     {
-    $data =Course::select('course_title')->where("course_title","LIKE"."%{$request->input('query')}%")->get();
-    return response()->json($data);
+                $main_categories= MainCategory::all();
+            $course_categories= CourseCategory::all();
+            $courses= Course::all();
+            $courses = Course::paginate(9);
+            $lts_c =Course::where('status',1)->latest()->limit(2)->get();
+         $data=$course=Course::where('course_title','like','%'.$request->input('query').'%')->
+         orWhere('sale_price','like','%'.$request->input('query').'%')->get();
+        
+         return view('search-result',['course'=>$data],compact('main_categories','course_categories','courses','lts_c'));
+
     }
+   
 
 }

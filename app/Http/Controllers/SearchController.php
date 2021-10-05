@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Course;
 use App\Models\MainCategory;
 use App\Models\CourseCategory;
-
+use App\Models\ClassroomCourse;
 
 class SearchController extends Controller
 {
@@ -33,10 +33,11 @@ class SearchController extends Controller
             $courses= Course::all();
             $courses = Course::paginate(9);
             $lts_c =Course::where('status',1)->latest()->limit(2)->get();
-         $data=$course=Course::where('course_title','like','%'.$request->input('query').'%')->
-         orWhere('sale_price','like','%'.$request->input('query').'%')->get();
-        
-         return view('search-result',['course'=>$data],compact('main_categories','course_categories','courses','lts_c'));
+         $data=$course=Course::where('course_title','like','%'.$request->input('query').'%')->get();
+
+         $data1=$course=ClassroomCourse::where('classroom_course_title','like','%'.$request->input('query').'%')->get();
+
+         return view('search-result',['course'=>$data,'course1'=>$data1],compact('main_categories','course_categories','courses','lts_c'));
 
     }
    

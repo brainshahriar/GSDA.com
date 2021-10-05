@@ -82,7 +82,7 @@
                             </div>
                         </div>
         </div>
-        <div class="col-sm-4">
+        <div class="col-sm-8">
             <div class="">
                 <h4>Search Results</h4>
                 <br>
@@ -90,16 +90,35 @@
                     <div class="searched-item">
                         <a href="home/course_details/{{$item->id}}">
                             <div class="design-li">
-                                <img src="{{asset("storage/courses/$item->course_image")}}" alt="" height="70px;" width="70px;">
+                                <h5>{{$item->main_category->mcategory_title}}</h5>
+                                <img src="{{asset("storage/courses/$item->course_image")}}" alt="" height="80px;" width="80px;">
                                 <strong >{{ $item['course_title'] }}</strong> <hr>
-                                <span>{{$item->main_category->mcategory_title}}</span>
+                                
                             </div>
                         </a>
                     
                     </div>
                     @empty
-                    <h1 style="color: red; padding:0 20px;">Not Result Found</h1>
+                    <h3 style="color: red; padding:0 20px;">No E-Learning Courses Found</h3>
                 @endforelse
+
+  
+                @forelse ($course1 as $item)
+                <div class="searched-item">
+                    <a href="/home/classroom/course_details/{{$item->id}}">
+                        <div class="design-li">
+                            <h5>{{$item->main_category->mcategory_title}}</h5>
+                            <img src="{{asset("storage/Classroom courses/$item->classroom_course_image")}}" alt="" height="80px;" width="80px;">
+                            <strong >{{ $item['classroom_course_title'] }}</strong> <hr>
+                            
+                        </div>
+                    </a>
+                
+                </div>
+                @empty
+                <h3 style="color: red; padding:0 20px;">No Classroom Courses Found</h3>
+            @endforelse
+      
             </div>
         </div>
       </div>

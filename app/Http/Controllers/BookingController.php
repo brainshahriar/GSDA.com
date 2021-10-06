@@ -47,7 +47,7 @@ class BookingController extends Controller
                         $booking->course_category_id= $course_category_id;
                         $booking->ip_address= $ip_address;
                         
-                        $user =Auth::user()->is_admin;
+                        $user =Auth::user(); 
                         $details=[
                           'greeting'=>'Classroom Course',
                           'body'=>'You have booked the course successfully! You will get an email or phone after confirmation. For any queries call at +8801766343434',

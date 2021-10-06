@@ -7,6 +7,7 @@
 	<meta name="author" content="" />
 	<meta name="robots" content="" />
     <meta name="csrf-token" content="{{ csrf_token() }}">
+
 	<!-- DESCRIPTION -->
 	<meta name="description" content="Global Skills Development Agency" />
 

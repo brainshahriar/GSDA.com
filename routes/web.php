@@ -45,7 +45,7 @@ use App\Http\Controllers\Auth\LoginController;
 */
 
 
-Route::get('/', [MasteringController::class,'index'])->name('home');
+Route::get('/', [MasteringController::class,'index'])->name('home'); 
 
 //Contact us Route
 Route::get('/contact_us', [ContactUsController::class,'contact'])->name('contact');
@@ -263,3 +263,5 @@ Route::get('login/facebook/callback', [LoginController::class,'handleFacebookCal
 //search
 // Route::get('/search-products', [SearchController::class,'searchProduct'])->name('search-product');
  Route::get("search", [SearchController::class,'searchProduct']);
+ Route::post('/find-products', [SearchController::class,'findProduct']);
+

@@ -40,6 +40,16 @@ class SearchController extends Controller
          return view('search-result',['course'=>$data,'course1'=>$data1],compact('main_categories','course_categories','courses','lts_c'));
 
     }
+    public function findProduct(Request $request)
+    {
+        $request->validate([
+            'search' => 'required'
+        ]);
+
+        $course = Course::where("course_title","LIKE","%".$request->search."%") ->take(5)->get();
+        $classroom=ClassroomCourse::where("classroom_course_title","LIKE","%".$request->search."%") ->take(5)->get();
+                return view('search-course',compact('course','classroom'));
+    }
    
 
 }

@@ -260,8 +260,9 @@ Route::get('login/google/callback', [LoginController::class,'handleGoogleCallbac
 Route::get('login/facebook', [LoginController::class,'redirectToFacebook'])->name('login.facebook');
 Route::get('login/facebook/callback', [LoginController::class,'handleFacebookCallback']);
 
-//search
+
 // Route::get('/search-products', [SearchController::class,'searchProduct'])->name('search-product');
+//search
  Route::get("search", [SearchController::class,'searchProduct']);
  Route::post('/find-products', [SearchController::class,'findProduct']);
 

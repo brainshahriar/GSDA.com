@@ -36,7 +36,7 @@
 	<![endif]-->
 
 	<!-- All PLUGINS CSS ============================================= -->
-	<link rel="stylesheet" type="text/css" href="{{ asset('css/assets.css')}}">
+	{{-- <link rel="stylesheet" type="text/css" href="{{ asset('css/assets.css')}}"> --}}
 
 	<!-- TYPOGRAPHY ============================================= -->
 	<link rel="stylesheet" type="text/css" href="{{ asset('css/typography.css')}}">
@@ -172,7 +172,7 @@
 <script src="{{ asset('vendors/owl-carousel/owl.carousel.js')}}"></script>
 <script src="{{ asset('js/functions.js')}}"></script>
 <script src="{{ asset('js/contact.js')}}"></script>
-<script src="{{ asset('vendors/switcher/switcher.js')}}"></script>
+{{-- <script src="{{ asset('vendors/switcher/switcher.js')}}"></script> --}}
 </body>
 
 </html>

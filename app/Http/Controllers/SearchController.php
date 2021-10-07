@@ -28,6 +28,9 @@ class SearchController extends Controller
 
     public function searchProduct(Request $request)
     {
+                $request->validate([
+            'query' => 'required'
+        ]);
                 $main_categories= MainCategory::all();
             $course_categories= CourseCategory::all();
             $courses= Course::all();

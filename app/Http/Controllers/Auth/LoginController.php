@@ -44,13 +44,16 @@ class LoginController extends Controller
 
     public function login(Request $request)
     {
-      $validated = $request->validate([
-        'email' => 'required|email',
-        'password'=> 'required',
 
+
+      $request->validate([
+    
+        'email' => 'required',
+        'password' => 'required',
       ]);
       if (Auth::attempt(['email'=>$request->email,'password'=>$request->password]))
         {
+    
           if(auth()->user()->is_admin==1)
           {
              return redirect()->route('admin.home');
